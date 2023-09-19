@@ -1,0 +1,8 @@
+{
+  "execMap": {
+    "ts": "npx tsx"
+  },
+  "ext": "ts, json",
+  "watch": ["server"],
+  "ignore": ["**/*.test.ts", "**/*.spec.ts"]
+}

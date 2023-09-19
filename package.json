@@ -1,0 +1,23 @@
+{
+  "name": "soolai",
+  "version": "1.0.0",
+  "type": "module",
+  "author": "Cabdirisaaq Faarax",
+  "license": "MIT",
+  "scripts": {
+    "build": "concurrently 'cd client && tsc && yarn vite build' 'cd server && yarn build'",
+    "preview": "cd client && yarn vite preview",
+    "dev": "concurrently 'cd client && yarn dev' 'cd server && yarn dev'",
+    "serve": "cd client && yarn vite preview",
+    "start": "node",
+    "clean": "rimraf"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.9",
+    "concurrently": "^8.2.1",
+    "nodemon": "^3.0.1",
+    "rimraf": "^5.0.1",
+    "tsx": "^3.12.8",
+    "typescript": "^5.2.2"
+  }
+}
