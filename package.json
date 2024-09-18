@@ -5,9 +5,10 @@
   "author": "Cabdirisaaq Faarax",
   "license": "MIT",
   "scripts": {
-    "build": "concurrently 'cd client && tsc && yarn vite build' 'cd server && yarn build'",
+    "install": "concurrently \"cd client && yarn\" \"cd server && yarn\"",
+    "build": "concurrently \"cd client && tsc && yarn vite build\" \"cd server && yarn build\"",
+    "dev": "concurrently \"cd client && yarn dev\" \"cd server && yarn dev\"",
     "preview": "cd client && yarn vite preview",
-    "dev": "concurrently 'cd client && yarn dev' 'cd server && yarn dev'",
     "serve": "cd client && yarn vite preview",
     "start": "node",
     "clean": "rimraf"
