@@ -10,14 +10,12 @@
     "dev": "concurrently \"cd client && yarn dev\" \"cd server && yarn dev\"",
     "preview": "cd client && yarn vite preview",
     "serve": "cd client && yarn vite preview",
-    "start": "node",
-    "clean": "rimraf"
+    "start": "node"
   },
   "devDependencies": {
     "@types/node": "^20.5.9",
     "concurrently": "^8.2.1",
     "nodemon": "^3.0.1",
-    "rimraf": "^5.0.1",
     "tsx": "^3.12.8",
     "typescript": "^5.2.2"
   }
