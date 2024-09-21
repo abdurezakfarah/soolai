@@ -3,28 +3,27 @@
 @tailwind utilities;
 
 * {
-    font-family: 'Inter', sans-serif;
-    box-sizing: border-box;    
+  font-family: "Inter", sans-serif;
+  box-sizing: border-box;
 }
 
 @layer components {
   .btn {
-  @apply font-inter py-2 md:py-4 px-4 md:px-8 text-white uppercase font-semibold md:font-bold md:text-lg rounded-lg shadow-md hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75; 
+    @apply font-inter py-2 md:py-4 px-4 md:px-8 text-white uppercase font-semibold md:font-bold md:text-lg rounded-lg shadow-md hover:bg-green-400 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75;
   }
 }
 
-
 @media screen and (min-width: 480px) {
-    .card:nth-child(7n + 1) {
-        grid-column: auto/span 2;
-        grid-row: auto/span 2;
-    }
+  .card:nth-child(7n + 1) {
+    grid-column: auto/span 2;
+    grid-row: auto/span 2;
+  }
 }
 
 .prompt::-webkit-scrollbar {
-    width: 5px;
+  width: 5px;
 }
- 
+
 .prompt::-webkit-scrollbar-thumb {
   background-color: #666e75;
   border-radius: 5px;

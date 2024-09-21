@@ -1,7 +1,7 @@
 import React, {
-  ChangeEvent,
-  InvalidEvent,
-  KeyboardEvent,
+  type ChangeEvent,
+  type InvalidEvent,
+  type KeyboardEvent,
 } from "react";
 
 export interface FormFieldProps {
@@ -13,17 +13,17 @@ export interface FormFieldProps {
   handleChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   isSurpriseMe?: boolean;
   handleSurpriseMePrompt?: () => void;
-  autoComplete?: string;  
+  autoComplete?: string;
   rows: number;
   maxLength?: number;
-  minLength?: number;  
+  minLength?: number;
   preventEnterKeyDefault?: boolean;
-  inputMode: 'search' | 'text';
+  inputMode: "search" | "text";
 }
 
 const FormField: React.FC<FormFieldProps> = ({
   label,
-  name,  
+  name,
   placeholder,
   value,
   required,
@@ -37,8 +37,7 @@ const FormField: React.FC<FormFieldProps> = ({
   preventEnterKeyDefault = false,
   inputMode,
 }: FormFieldProps) => {
-  
-    const handleInput = (event: ChangeEvent<HTMLTextAreaElement>) => {
+  const handleInput = (event: ChangeEvent<HTMLTextAreaElement>) => {
     const { currentTarget } = event;
 
     if (!currentTarget.validity.valid) {
@@ -51,13 +50,19 @@ const FormField: React.FC<FormFieldProps> = ({
     const { currentTarget } = event;
 
     if (currentTarget.validity.valueMissing) {
-      currentTarget.setCustomValidity(`Please enter your ${currentTarget.name} here.`);
+      currentTarget.setCustomValidity(
+        `Please enter your ${currentTarget.name} here.`,
+      );
     }
     if (currentTarget.validity.typeMismatch) {
-      currentTarget.setCustomValidity(`Please enter valid ${currentTarget.name} here.`);
+      currentTarget.setCustomValidity(
+        `Please enter valid ${currentTarget.name} here.`,
+      );
     }
     if (currentTarget.validity.patternMismatch) {
-      currentTarget.setCustomValidity(`Please enter valid ${currentTarget.name} here.`);
+      currentTarget.setCustomValidity(
+        `Please enter valid ${currentTarget.name} here.`,
+      );
     }
   };
 
@@ -68,7 +73,10 @@ const FormField: React.FC<FormFieldProps> = ({
   return (
     <fieldset>
       <div className="mb-2 flex items-center gap-2">
-        <label htmlFor={name} className="block text-sm md:text-base font-medium text-gray-900">
+        <label
+          htmlFor={name}
+          className="block text-sm md:text-base font-medium text-gray-900"
+        >
           {label}
         </label>
 
@@ -89,7 +97,7 @@ const FormField: React.FC<FormFieldProps> = ({
         )}
       </div>
       <textarea
-        id={name}        
+        id={name}
         name={name}
         value={value}
         inputMode={inputMode}
@@ -104,7 +112,6 @@ const FormField: React.FC<FormFieldProps> = ({
         className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm md:text-base text-ellipsis rounded-lg focus:ring-secondary focus:border-secondary outline-none block w-full p-3 resize-none overflow-x-hidden`}
         rows={rows}
         autoComplete={autoComplete}
-        
       />
     </fieldset>
   );

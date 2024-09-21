@@ -1,12 +1,5 @@
-import {
-  generateRandomPrompt,  
-} from "./generateRandomPrompt"
+import { generateRandomPrompt } from "./generateRandomPrompt";
 
-import {
-  downloadImage
-} from "./downloadImage"
+import { downloadImage } from "./downloadImage";
 
-export {
-  generateRandomPrompt,
-  downloadImage,
-}
+export { generateRandomPrompt, downloadImage };

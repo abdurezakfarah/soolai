@@ -2,21 +2,18 @@
   "name": "soolai",
   "version": "1.0.0",
   "type": "module",
-  "author": "Cabdirisaaq Faarax",
-  "license": "MIT",
   "scripts": {
-    "install": "concurrently \"cd client && yarn\" \"cd server && yarn\"",
-    "build": "concurrently \"cd client && tsc && yarn vite build\" \"cd server && yarn build\"",
-    "dev": "concurrently \"cd client && yarn dev\" \"cd server && yarn dev\"",
-    "preview": "cd client && yarn vite preview",
-    "serve": "cd client && yarn vite preview",
-    "start": "node"
+    "install": "concurrently \"cd client && pnpm install\" \"cd server && bun install\"",
+    "build": "concurrently \"cd client && tsc && pnpm  build\" \"cd server && pnpm  build\"",
+    "dev": "concurrently \"cd client && pnpm  dev\" \"cd server && pnpm  dev\"",
+    "serve": "cd client && pnpm  preview"
   },
   "devDependencies": {
     "@types/node": "^20.5.9",
     "concurrently": "^8.2.1",
-    "nodemon": "^3.0.1",
-    "tsx": "^3.12.8",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.45.0",
     "typescript": "^5.2.2"
   }
 }

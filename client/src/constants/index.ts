@@ -1,11 +1,3 @@
-import { 
-    surpriseMePrompts 
-    } from "./surpriseMePrompts"
-import { 
-    mainNavs
-     } from "./ui"
+import { surpriseMePrompts } from "./surpriseMePrompts";
 
-export {
-  surpriseMePrompts,
-  mainNavs,
-}
+export { surpriseMePrompts };

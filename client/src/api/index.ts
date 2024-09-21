@@ -1,14 +1,5 @@
-import {
-  postPrompt
-} from "./dalle";
+import { postPrompt } from "./dalle";
 
-import {
-  createPost,
-  getPosts
-} from "./posts";
+import { createPost, getPosts } from "./posts";
 
-export {
-  postPrompt,
-  createPost,
-  getPosts
-}
+export { postPrompt, createPost, getPosts };

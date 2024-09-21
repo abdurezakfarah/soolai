@@ -1,39 +1,30 @@
-import { createBrowserRouter } from "react-router-dom"
+import { createBrowserRouter } from "react-router-dom";
 
-import { 
-    Root,
-    CreatePost,
-    PageNotFound,
-    Error,
-    } from "./routes"
-    
-import {
-  HeaderFooterLayout
-} from "./layouts"
+import { Root, CreatePost, PageNotFound, Error } from "./routes";
 
+import { RootLayout } from "./layouts";
 
 const routes = [
-    {
+  {
     path: "/",
-    Component: Root,    
+    Component: Root,
   },
   {
-    path: "/create-post",
+    path: "/create",
     Component: CreatePost,
-    
   },
   {
     path: "*",
-    Component: PageNotFound 
+    Component: PageNotFound,
   },
-]
+];
 
+const router = createBrowserRouter([
+  {
+    Component: RootLayout,
+    errorElement: <Error />,
+    children: routes,
+  },
+]);
 
-const router = createBrowserRouter([{
-  Component: HeaderFooterLayout,
-  errorElement: <Error />,
-  children: routes
-}]
-)
-
-export default router
+export default router;

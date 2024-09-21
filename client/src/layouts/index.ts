@@ -1,5 +1,3 @@
-import HeaderFooterLayout from "./HeaderFooterLayout"
+import RootLayout from "./RoorLayout";
 
-export {
-  HeaderFooterLayout
-}
+export { RootLayout };
