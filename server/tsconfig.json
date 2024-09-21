@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
+    "outDir": "./public",
     "declaration": true,
     "esModuleInterop": true,
     "strict": true,
