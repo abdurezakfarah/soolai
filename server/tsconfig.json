@@ -19,6 +19,6 @@
     "verbatimModuleSyntax": true,
     "noEmit": true
   },
-  "include": ["src"],
+  "include": ["api"],
   "exclude": ["node_modules"]
 }
