@@ -1,12 +1,5 @@
-import {
-  validatePost
-} from './validatePost';
+import { validatePost } from "./validatePost";
 
-import {
-  validatePrompt
-} from './validatePrompt';
+import { validatePrompt } from "./validatePrompt";
 
-export {
-  validatePost,
-  validatePrompt
-}
+export { validatePost, validatePrompt };

@@ -1,71 +1,44 @@
-import dotenv from "dotenv"
-
-import path from "path"
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-switch(process.env.NODE_ENV) {
-  case "development":
-    dotenv.config({ path: path.resolve(__dirname, '../../.env') })
-    break
-  case "production":
-    dotenv.config()  
-    break
-  // Add 'staging' and 'production' cases here as well!
-  default:
-    throw new Error(`'NODE_ENV' ${process.env.NODE_ENV} is not handled!`)
-}
-
-//dotenv.config({ path: path.resolve(__dirname, '../../.env') })
-
-import {
-   validatePrompt
-} from './validators/validatePrompt.js'
-
-import express, {Router, Request, Response} from "express"
-
-import OpenAI from 'openai';
-
+import { validatePrompt } from "./validators/validatePrompt.js";
+import express, { Router, type Request, type Response } from "express";
+import OpenAI from "openai";
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
+const router: Router = express.Router();
 
-const router:Router = express.Router()
+router
+  .route("/")
+  .post(validatePrompt, async (request: Request, response: Response) => {
+    try {
+      const { prompt } = request.body;
 
+      const imageResponse = await openai.images.generate({
+        prompt,
+        n: 1,
+        size: "1024x1024",
+        response_format: "b64_json",
+      });
 
-router.route("/")
-   .post(validatePrompt, async (request: Request, response: Response) => {
-       try{
-          const { prompt } = request.body
-          
-       
-          const imageResponse = await openai.images.generate({
-            prompt,
-            n: 1,
-            size: '1024x1024',
-            response_format: 'b64_json'
-          })
-           
-           const image = imageResponse.data[0].b64_json
-                     
-          response
-              .status(200)
-              .json({
-                success: true,
-                 photo: image
-               })
-               
-       } catch(error: any) {
-          response
-              .status(500)
-              .json({
-                success: false,
-                message: "Oops, our mistake! We encountered a problem, but don't worry, we're fixing it right now! 😊"
-               })
-       }
-   })
+      const image = imageResponse.data[0].b64_json;
 
-export default router
+      response.status(200).json({
+        success: true,
+        photo: image,
+      });
+    } catch (error) {
+      console.log(error);
+
+      let message =
+        "Oops, our mistake! We encountered a problem, but don't worry, we're fixing it right now! 😊";
+      if (error instanceof Error) {
+        message = error.message;
+      }
+      response.status(500).json({
+        success: false,
+        message,
+      });
+    }
+  });
+
+export default router;
