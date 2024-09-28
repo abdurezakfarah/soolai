@@ -51,7 +51,7 @@ const Footer = () => {
           <span className="sr-only">Facebook page</span>
         </a>
 
-        <a href="https://wa.me/+254740423737" className="text-gray-500">
+        <a href="https://wa.me/+254799992045" className="text-gray-500">
           <svg
             className="w-4 h-4"
             aria-hidden="true"
@@ -87,7 +87,7 @@ const Footer = () => {
           </svg>
           <span className="sr-only">Twitter page</span>
         </a>
-        <a href="https://www.github.com/awelrisak" className="text-gray-500">
+        <a href="https://www.github.com/abdurezakfarah" className="text-gray-500">
           <svg
             className="w-4 h-4"
             aria-hidden="true"

@@ -1,5 +1,5 @@
 import download from "./download.png";
-import logoSoolAi from "./logoSoolAi.svg";
+import pichify from "./pichify.svg";
 import preview from "./preview.png";
 
-export { download, logoSoolAi, preview };
+export { download, pichify, preview };
